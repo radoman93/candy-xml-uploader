@@ -1,0 +1,74 @@
+
+<div class="relative flex justify-center items-center w-full h-screen">
+
+  <div *ngIf="isLoading" role="status" class="max-w-md p-4 space-y-4 border border-gray-200 divide-y divide-gray-200 rounded shadow animate-pulse dark:divide-gray-700 md:p-6 dark:border-gray-700">
+    <div class="flex items-center justify-between">
+      <div>
+        <div class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-24 mb-2.5"></div>
+        <div class="w-32 h-2 bg-gray-200 rounded-full dark:bg-gray-700"></div>
+      </div>
+      <div class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-700 w-12"></div>
+    </div>
+    <div class="flex items-center justify-between pt-4">
+      <div>
+        <div class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-24 mb-2.5"></div>
+        <div class="w-32 h-2 bg-gray-200 rounded-full dark:bg-gray-700"></div>
+      </div>
+      <div class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-700 w-12"></div>
+    </div>
+    <span class="sr-only">Loading...</span>
+  </div>
+
+  <div *ngIf="!isLoading" class="relative overflow-x-auto shadow-md sm:rounded-lg">
+    <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+      <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+      <tr>
+        <th scope="col" class="px-6 py-3">
+          XLSX
+        </th>
+        <th scope="col" class="px-6 py-3">
+          Last Update
+        </th>
+        <th scope="col" class="px-6 py-3 flex justify-center">
+          Action
+        </th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+          Lager XLSX File sa cenama
+        </th>
+        <td class="px-6 py-4">
+          {{this.data[0].last_updated | formatTimestamp}}
+        </td>
+        <td class="px-6 py-4">
+          <label  class="font-medium text-blue-600 dark:text-blue-500 hover:underline mx-2 cursor-pointer">
+            <input type="file" hidden (change)="onFileSelected($event)" />
+            Upload New
+          </label>
+          <a href="/xml_export_with_prices.xml" class="font-medium text-blue-600 dark:text-blue-500 hover:underline mx-2">View</a>
+        </td>
+      </tr>
+      <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+          Lager XLSX File bez cena
+        </th>
+        <td class="px-6 py-4">
+          {{this.data[1].last_updated | formatTimestamp}}
+        </td>
+        <td class="px-6 py-4">
+          <label  class="font-medium text-blue-600 dark:text-blue-500 hover:underline mx-2 cursor-pointer">
+            <input type="file" hidden (change)="onFileSelected($event)" />
+            Upload New
+          </label>
+          <a href="/xml_export_without_prices.xml" class="font-medium text-blue-600 dark:text-blue-500 hover:underline mx-2">View</a>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+
+
+
+</div>

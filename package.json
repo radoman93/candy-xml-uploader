@@ -1,0 +1,17 @@
+{
+  "name": "candy-xml-uploader",
+  "private": true,
+  "workspaces": [
+    "backend",
+    "frontend"
+  ],
+  "scripts": {
+    "start": "concurrently \"npm run start --workspace=backend\" \"npm run start --workspace=frontend\""
+  },
+  "devDependencies": {
+    "concurrently": "^7.6.0"
+  },
+  "dependencies": {
+    "express-session": "^1.18.0"
+  }
+}
