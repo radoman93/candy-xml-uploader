@@ -16,8 +16,8 @@ import {error} from "@angular/compiler-cli/src/transformers/util";
 })
 export class LoginComponent  implements OnInit{
 
-  username: string = 'jopica123@gmail.com';
-  password: string = 'Tp-link123';
+  username: string = '';
+  password: string = '';
 
   constructor(private authService: AuthService, private router: Router) {
   }
