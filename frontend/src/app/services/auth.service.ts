@@ -7,9 +7,9 @@ import {Observable} from 'rxjs';
 })
 export class AuthService {
 
-  private loginUrl = '/auth/login';  // URL to backend login endpoint
-  private getAllFilesUrl = '/upload/files'
-  private uploadFileUrl = '/upload'
+  private loginUrl = 'https://xml-backend.hei-program.com/auth/login';  // URL to backend login endpoint
+  private getAllFilesUrl = 'https://xml-backend.hei-program.com/upload/files'
+  private uploadFileUrl = 'https://xml-backend.hei-program.com/upload'
 
   constructor(private http: HttpClient) {
   }
