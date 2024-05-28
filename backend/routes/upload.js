@@ -23,9 +23,12 @@ router.post('/', upload.single('file'), (req, res) => {
     const workbook = xlsx.readFile(req.file.path);
     const sheetNameList = workbook.SheetNames;
     const df = xlsx.utils.sheet_to_json(workbook.Sheets[sheetNameList[0]]);
+    const GLN = df[0]['GLN'];
+    console.log(GLN);
 
     // Create an XML root element
-    const root = xmlbuilder.create('Items');
+    const root = xmlbuilder.create('Items')
+        .att('GLN', GLN);
     let xmlFile = "public/xml_export_without_prices.xml"
     // Iterate through each row in the DataFrame
     df.forEach((row, index) => {
